@@ -33,7 +33,7 @@ public class VentaEntity {
     @Column(name="token")
     private String token;
 
-    @Column(name="return_webpay_url")
+    @Column(name="url")
     private String url;
 }
 

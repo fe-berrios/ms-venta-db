@@ -20,11 +20,13 @@ public class VentaService {
         ventaEntity.setAmount(venta.getAmount());
         ventaEntity.setReturnUrl(venta.getReturnUrl());
         ventaEntity.setToken(venta.getToken());
-        ventaEntity.setToken(venta.getUrl());
+        ventaEntity.setUrl(venta.getUrl());
 
         VentaEntity nuevaVenta = ventaRepository.save(ventaEntity);
 
         return venta;
     }
+
+
 
 }
