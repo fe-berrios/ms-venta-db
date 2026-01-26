@@ -1,0 +1,11 @@
+CREATE DATABASE ferremas;
+
+CREATE TABLE ferremas.ventas(
+	id int NOT NULL AUTO_INCREMENT,
+	buy_order varchar(255) NOT NULL,
+	session_id varchar(255) NOT NULL,
+	amount int NOT NULL,
+	return_url varchar(255) NOT NULL,
+	token varchar(255) NOT NULL,
+	url varchar(255) NOT NULL,
+	PRIMARY KEY(`id`));
