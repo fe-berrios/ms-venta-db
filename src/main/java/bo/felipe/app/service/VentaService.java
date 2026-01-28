@@ -25,9 +25,12 @@ public class VentaService {
         ventaEntity.setToken(venta.getToken());
         ventaEntity.setUrl(venta.getUrl());
 
-        VentaEntity nuevaVenta = ventaRepository.save(ventaEntity);
-
+        ventaRepository.save(ventaEntity);
         return venta;
+    }
+
+    public List<VentaEntity> getVentas(){
+        return ventaRepository.findAll();
     }
 
     public VentaEntity getVentaById(Long id){
@@ -38,5 +41,8 @@ public class VentaService {
         return ventaRepository.findByBuyOrder(buy_order);
     }
 
+    public void deleteVenta(Long id){
+        ventaRepository.deleteById(id);
+    }
 
 }
