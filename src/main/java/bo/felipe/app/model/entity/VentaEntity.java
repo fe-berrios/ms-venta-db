@@ -35,5 +35,12 @@ public class VentaEntity {
 
     @Column(name="url")
     private String url;
+
+    @Column(name="status")
+    private String status;
+
+    @Column(name="authorization_code")
+    private String authorization_code;
+
 }
 

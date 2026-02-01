@@ -37,12 +37,25 @@ public class VentaService {
         return ventaRepository.findById(id).orElseThrow(()->new EntityNotFoundException("Usuario no encontrado: " + (id)));
     }
 
-    public List<VentaEntity> getVentaByBO(String buy_order){
+    public VentaEntity getVentaByToken(String token){
+        return ventaRepository.findByToken(token);
+    }
+
+    public VentaEntity getVentaByBO(String buy_order){
         return ventaRepository.findByBuyOrder(buy_order);
     }
 
     public void deleteVenta(Long id){
         ventaRepository.deleteById(id);
+    }
+
+    public Venta updateStatusVenta(Venta venta, String buy_order){
+        VentaEntity updatedVenta = getVentaByBO(buy_order);
+        updatedVenta.setStatus(venta.getStatus());
+        updatedVenta.setAuthorization_code(venta.getAuthorizationCode());
+
+        ventaRepository.save(updatedVenta);
+        return venta;
     }
 
 }

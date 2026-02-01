@@ -29,8 +29,13 @@ public class VentaController {
 
     // getVentaByBO
     @GetMapping("/db/venta/bo/{buy_order}")
-    public List<VentaEntity> getVentaByBO(@PathVariable String buy_order){
+    public VentaEntity getVentaByBO(@PathVariable String buy_order){
         return ventaService.getVentaByBO(buy_order);
+    }
+
+    @GetMapping("/db/venta/token/{token}")
+    public VentaEntity getVentaByToken(@PathVariable("token")String token){
+        return ventaService.getVentaByToken(token);
     }
 
     // addVenta
@@ -43,6 +48,12 @@ public class VentaController {
     @DeleteMapping("/db/delete/venta/{id}")
     public void deleteVenta(@PathVariable("id")Long id){
         ventaService.deleteVenta(id);
+    }
+
+    // updateStatusVenta
+    @PutMapping("/db/update/venta/{buy_order}")
+    public Venta updateStatusVenta(@PathVariable("buy_order")String buy_order, @RequestBody Venta venta){
+        return ventaService.updateStatusVenta(venta, buy_order);
     }
 
 }
