@@ -45,8 +45,9 @@ public class VentaService {
         return ventaRepository.findByBuyOrder(buy_order);
     }
 
-    public void deleteVenta(Long id){
+    public String deleteVenta(Long id){
         ventaRepository.deleteById(id);
+        return "Venta eliminada con exito!";
     }
 
     public Venta updateStatusVenta(Venta venta, String buy_order){
@@ -57,5 +58,4 @@ public class VentaService {
         ventaRepository.save(updatedVenta);
         return venta;
     }
-
 }

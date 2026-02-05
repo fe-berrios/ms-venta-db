@@ -57,8 +57,9 @@ public class VentaController {
     // D
     // deleteVenta
     @DeleteMapping("/db/delete/venta/{id}")
-    public void deleteVenta(@PathVariable("id")Long id){
+    public String deleteVenta(@PathVariable("id")Long id){
         ventaService.deleteVenta(id);
+        return "Venta eliminada con éxito!";
     }
 
 }
